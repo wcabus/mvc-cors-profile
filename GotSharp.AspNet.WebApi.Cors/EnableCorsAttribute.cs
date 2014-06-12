@@ -70,11 +70,43 @@ namespace GotSharp.AspNet.WebApi.Cors
                 corsSettings.Methods,
                 corsSettings.ExposedHeaders
             );
+
+            if (corsSettings.PreflightMaxAge > -1)
+            {
+                _internalAttribute.PreflightMaxAge = corsSettings.PreflightMaxAge;
+            }
+
+            _internalAttribute.SupportsCredentials = corsSettings.SupportsCredentials;
         }
 
-        public Task<CorsPolicy> GetCorsPolicyAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+        public bool SupportsCredentials
         {
-            return _internalAttribute.GetCorsPolicyAsync(request, cancellationToken);
+            get
+            {
+                return _internalAttribute.SupportsCredentials;
+            }
+            set
+            {
+                _internalAttribute.SupportsCredentials = value;
+            }
+        }
+
+        public long PreflightMaxAge
+        {
+            get
+            {
+                return _internalAttribute.PreflightMaxAge;
+            }
+            set
+            {
+                _internalAttribute.PreflightMaxAge = value;
+            }
+        }
+
+        public async Task<CorsPolicy> GetCorsPolicyAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+        {
+            var result = await _internalAttribute.GetCorsPolicyAsync(request, cancellationToken);
+            return result;
         }
 
         internal CorsProfile GetProfile(string profileName)

@@ -12,21 +12,29 @@ namespace GotSharp.AspNet.WebApi.Cors.Configuration
         private static readonly ConfigurationProperty _propHeaders;
         private static readonly ConfigurationProperty _propMethods;
         private static readonly ConfigurationProperty _propExposedHeaders;
+        private static readonly ConfigurationProperty _propSupportsCredentials;
+        private static readonly ConfigurationProperty _propPreflightMaxAge;
         // ReSharper restore InconsistentNaming
 
         static CorsProfile()
         {
             _properties = new ConfigurationPropertyCollection();
+            
             _propName = new ConfigurationProperty("name", typeof(string), null, ValidatorsAndConverters.WhiteSpaceTrimStringConverter, ValidatorsAndConverters.NonEmptyStringValidator, ConfigurationPropertyOptions.IsRequired | ConfigurationPropertyOptions.IsKey);
             _propOrigins = new ConfigurationProperty("origins", typeof(string), "*", ValidatorsAndConverters.WhiteSpaceTrimStringConverter, ValidatorsAndConverters.NonEmptyStringValidator, ConfigurationPropertyOptions.IsRequired);
-            _propHeaders = new ConfigurationProperty("headers", typeof(string), "*", ValidatorsAndConverters.WhiteSpaceTrimStringConverter, ValidatorsAndConverters.NonEmptyStringValidator, ConfigurationPropertyOptions.None);
-            _propMethods = new ConfigurationProperty("methods", typeof(string), "*", ValidatorsAndConverters.WhiteSpaceTrimStringConverter, ValidatorsAndConverters.NonEmptyStringValidator, ConfigurationPropertyOptions.None);
-            _propExposedHeaders = new ConfigurationProperty("exposedHeaders", typeof(string), null, ValidatorsAndConverters.WhiteSpaceTrimStringConverter, ValidatorsAndConverters.NonEmptyStringValidator, ConfigurationPropertyOptions.None);
+            _propHeaders = new ConfigurationProperty("headers", typeof(string), "*", ValidatorsAndConverters.WhiteSpaceTrimStringConverter, null, ConfigurationPropertyOptions.None);
+            _propMethods = new ConfigurationProperty("methods", typeof(string), "*", ValidatorsAndConverters.WhiteSpaceTrimStringConverter, null, ConfigurationPropertyOptions.None);
+            _propExposedHeaders = new ConfigurationProperty("exposedHeaders", typeof(string), null, ValidatorsAndConverters.WhiteSpaceTrimStringConverter, null, ConfigurationPropertyOptions.None);
+            _propSupportsCredentials = new ConfigurationProperty("supportsCredentials", typeof(bool), false, ConfigurationPropertyOptions.None);
+            _propPreflightMaxAge = new ConfigurationProperty("preflightMaxAge", typeof(long), -1L, ConfigurationPropertyOptions.None);
+
             _properties.Add(_propName);
             _properties.Add(_propOrigins);
             _properties.Add(_propHeaders);
             _properties.Add(_propMethods);
             _properties.Add(_propExposedHeaders);
+            _properties.Add(_propSupportsCredentials);
+            _properties.Add(_propPreflightMaxAge);
         }
 
         internal CorsProfile()
@@ -64,7 +72,7 @@ namespace GotSharp.AspNet.WebApi.Cors.Configuration
         /// </summary>
         /// <returns>The origins.</returns>
         [TypeConverter(typeof(WhiteSpaceTrimStringConverter))]
-        [ConfigurationProperty("origins", IsRequired = true, DefaultValue = "*")]
+        [ConfigurationProperty("origins", IsRequired = true, DefaultValue = "*"), StringValidator(MinLength = 1)]
         public string Origins
         {
             get
@@ -128,6 +136,40 @@ namespace GotSharp.AspNet.WebApi.Cors.Configuration
             set
             {
                 base[_propExposedHeaders] = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets whether credentials are supported.
+        /// </summary>
+        /// <returns>True if credentials are supported, false otherwise.</returns>
+        [ConfigurationProperty("supportsCredentials", DefaultValue = false)]
+        public bool SupportsCredentials
+        {
+            get
+            {
+                return (bool)base[_propSupportsCredentials];
+            }
+            set
+            {
+                base[_propSupportsCredentials] = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the preflight max age.
+        /// </summary>
+        /// <returns>The preflight max age.</returns>
+        [ConfigurationProperty("preflightMaxAge", DefaultValue = -1L)]
+        public long PreflightMaxAge
+        {
+            get
+            {
+                return (long)base[_propPreflightMaxAge];
+            }
+            set
+            {
+                base[_propPreflightMaxAge] = value;
             }
         }
 
