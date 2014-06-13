@@ -5,9 +5,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Cors;
 using System.Web.Http.Cors;
-using GotSharp.AspNet.WebApi.Cors.Configuration;
+using Cors.ConfigProfiles.Configuration;
 
-namespace GotSharp.AspNet.WebApi.Cors
+namespace Cors.ConfigProfiles
 {
     /// <summary>
     /// This class defines an attribute that can be applied to an action or a controller to enable CORS.

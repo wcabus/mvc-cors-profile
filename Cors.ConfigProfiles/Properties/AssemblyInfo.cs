@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GotSharp.AspNet.WebApi.Cors")]
+[assembly: AssemblyTitle("Cors.ConfigProfiles")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("GotSharp")]
-[assembly: AssemblyProduct("GotSharp.AspNet.WebApi.Cors")]
-[assembly: AssemblyCopyright("© GotSharp. All rights reserved.")]
+[assembly: AssemblyCompany("Wesley Cabus")]
+[assembly: AssemblyProduct("Cors.ConfigProfiles")]
+[assembly: AssemblyCopyright("© Wesley Cabus. All rights reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

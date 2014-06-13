@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GotSharp.AspNet.WebApi.Cors {
+namespace Cors.ConfigProfiles {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace GotSharp.AspNet.WebApi.Cors {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GotSharp.AspNet.WebApi.Cors.StringResources", typeof(StringResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Cors.ConfigProfiles.StringResources", typeof(StringResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

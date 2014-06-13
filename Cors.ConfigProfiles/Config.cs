@@ -1,7 +1,7 @@
 ﻿using System.Configuration;
-using GotSharp.AspNet.WebApi.Cors.Configuration;
+using Cors.ConfigProfiles.Configuration;
 
-namespace GotSharp.AspNet.WebApi.Cors
+namespace Cors.ConfigProfiles
 {
     internal class Config
     {

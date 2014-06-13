@@ -2,7 +2,7 @@
 using System.Configuration;
 using System.Linq;
 
-namespace GotSharp.AspNet.WebApi.Cors.Configuration
+namespace Cors.ConfigProfiles.Configuration
 {
     [ConfigurationCollection(typeof(CorsProfile))]
     public sealed class CorsProfileCollection : ConfigurationElementCollection

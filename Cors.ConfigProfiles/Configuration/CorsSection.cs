@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace GotSharp.AspNet.WebApi.Cors.Configuration
+namespace Cors.ConfigProfiles.Configuration
 {
     public sealed class CorsSection : ConfigurationSection
     {

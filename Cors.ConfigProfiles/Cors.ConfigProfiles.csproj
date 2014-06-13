@@ -7,8 +7,8 @@
     <ProjectGuid>{2A480FAA-B207-42AF-AD66-49AFC7F0CEF1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GotSharp.AspNet.WebApi.Cors</RootNamespace>
-    <AssemblyName>GotSharp.AspNet.WebApi.Cors</AssemblyName>
+    <RootNamespace>Cors.ConfigProfiles</RootNamespace>
+    <AssemblyName>Cors.ConfigProfiles</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -33,7 +33,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>GotSharp.AspNet.WebApi.Cors.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>Cors.ConfigProfiles.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -78,7 +78,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="GotSharp.AspNet.WebApi.Cors.snk" />
+    <None Include="Cors.ConfigProfiles.snk" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
