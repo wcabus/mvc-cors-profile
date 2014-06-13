@@ -17,4 +17,7 @@
       <dependency id="Microsoft.AspNet.WebApi.Cors" version="[5.1,6)" />
     </dependencies>
   </metadata>
+  <files>
+    <file src="..\web.config.transform" target="content" />
+  </files>
 </package>
