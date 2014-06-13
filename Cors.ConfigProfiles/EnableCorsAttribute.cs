@@ -103,10 +103,9 @@ namespace Cors.ConfigProfiles
             }
         }
 
-        public async Task<CorsPolicy> GetCorsPolicyAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+        public Task<CorsPolicy> GetCorsPolicyAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            var result = await _internalAttribute.GetCorsPolicyAsync(request, cancellationToken);
-            return result;
+            return _internalAttribute.GetCorsPolicyAsync(request, cancellationToken);
         }
 
         internal CorsProfile GetProfile(string profileName)
